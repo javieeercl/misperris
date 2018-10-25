@@ -1,0 +1,61 @@
+{% extends 'core/base.html' %}
+
+{% block contenido %}
+
+<h2>Registro de Postulante</h2>
+<form action="" id="formularioFundacion" method="POST">
+    <table>
+        <label for=""><h3>POSTULA AQUI</h3></label>
+        <input type="int" name="txtRut" placeholder="RUT" id="txtRut" required="" onblur="validarRUT(this)">
+        <input type="text" name="txtNombreCompleto" id="txtNombreCompleto" placeholder="NOMBRE" required="" >
+        <label for="">Fecha Nacimiento:</label>
+        <input type="date" name="dtpFechaNacimiento" id="dtpFechaNacimiento" required="">
+        <input type="email" name="txtEmail" id="txtEmail" placeholder="EMAIL" required="">
+        <input type="int" name="txtTelefono" id="txtTelefono" placeholder="TELEFONO" required="">
+        <label for="">Region: </label>
+        <p>
+            <select name="cboRegion" id="cboRegion" class="select" required="">
+                <option value="">Seleccionar Region</option>
+                <?php while($fila = $resultadoRegion->fetch_assoc()): ?>
+                    <option value="<?php echo $fila["id_region"]; ?>">
+                        <?php echo $fila["region"]; ?>
+                    </option>
+                <?php endwhile; ?>
+    
+                </select>
+            </select>
+        <p>
+            <label for="">Ciudad: </label>
+        <p>
+            <select name="cboCiudad" id="cboCiudad" class="select" required="">
+                <option value="">Seleccionar Ciudad</option>
+                <?php while($fila = $resultadoCiudad->fetch_assoc()): ?>
+                    <option value="<?php echo $fila["id_ciudad"]; ?>">
+                        <?php echo $fila["ciudad"]; ?>
+                    </option>
+                <?php endwhile; ?>
+                </select>
+       <p>
+            <label for="">Tipo Vivienda: </label>
+       <p>
+       <p>
+            <select name="cboVivienda" id="cboVivienda" class="select" required="">
+                <option value="">Seleccionar tipo de Vivienda</option>
+                <?php while($fila = $resultadoTipoVivienda->fetch_assoc()): ?>
+                <option value="<?php echo $fila["id_vivienda"]; ?>">
+                    <?php echo $fila["vivienda"]; ?>
+                </option>
+    
+                <?php endwhile; ?>
+                </select>
+            </select>
+     <p>
+     <p>
+     <p>
+        <input type="submit" value="Guardar" name="btnGuardar" id="btnGuardar">
+      
+    </table>
+</form>
+
+{% endblock contenido %}}
+
