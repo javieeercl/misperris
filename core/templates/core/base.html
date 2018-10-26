@@ -19,17 +19,33 @@
         <img class="logo" src="{% static 'core/img/logo.png' %}" alt="Logo">
             <ul class="navegacion">
                 <li>
-                    <a href="#"> <p>Inicio</p> </a>
+                    <a href="{% url 'home' %}"> <p>Inicio</p> </a>
                 </li>
                 <li>
                     <a href="#">Quienes somos</a>
                 </li>
                 <li>
-                    <a href="http://localhost:8088/misperris/registroPostulante.php">Servicios</a>
+                    <a href="{% url 'registro' %}">Servicios</a>
                 </li>
                 <li>
                     <a href="#">Contactanos</a>
                 </li>
+
+                {% if request.user.is_authenticated %}
+                <li>
+                    <a href="{% url 'logout' %}">Cerrar sesion</a>
+                </li>
+                {% else %}
+                
+                <li>
+                    <a href="{% url 'login' %}">Login</a>
+                </li>
+                <li>
+                    <a href="{% url 'registro' %}">Registro</a>
+                </li>
+        
+                {% endif %}
+
             </ul>
     </header>
     <div class="landing">
@@ -51,13 +67,25 @@
             <h5 class="mensaje">Rescate y adopción de perros callejeros</h5>
             <ul class="social">
                 <li>
-                    <a href="http://twitter.com" target="_blank">
+                    <a href="http://twitter.com">
                         <img src="{% static 'core/img/social-twitter.png' %}" alt="twitter">
                     </a>
                 </li>
-                <li><img src="{% static 'core/img/socialfacebook.png' %}" alt="facebook"></li>
-                <li><img src="{% static 'core/img/social-inst.png' %}" alt="instagram"></li>
-                <li><img src="{% static 'core/img/socialplus.png' %}" alt="Google"></li>
+                <li>
+                    <a href="http://facebook.com">
+                        <img src="{% static 'core/img/socialfacebook.png' %}" alt="facebook">
+                    </a>  
+                </li>
+                <li>
+                    <a href="http://instagram.com">
+                        <img src="{% static 'core/img/social-inst.png' %}" alt="instagram">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://plus.google.com">
+                        <img src="{% static 'core/img/socialplus.png' %}" alt="Google">
+                    </a>
+                </li>
             </ul>
         </div>
     </div>

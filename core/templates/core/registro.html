@@ -3,50 +3,45 @@
 {% block contenido %}
 
 <h2>Registro de Postulante</h2>
-<form action="" id="formularioFundacion" method="POST">
+<form action="" name="registro" id="registro" method="POST">
+    {% csrf_token %}
     <table>
         <label for=""><h3>POSTULA AQUI</h3></label>
-        <input type="int" name="txtRut" placeholder="RUT" id="txtRut" required="" onblur="validarRUT(this)">
-        <input type="text" name="txtNombreCompleto" id="txtNombreCompleto" placeholder="NOMBRE" required="" >
+        <label for="txtRut">Rut</label>
+        <input type="int" name="txtRut" placeholder="Rut" id="txtRut" required="" onblur="validarRUT(this)">
+        <label for="txtEmail">Correo</label>
+        <input type="email" name="txtEmail" id="txtEmail" placeholder="Email" required="">
+        <label for="txtNombreCompleto">Nombre</label>
+        <input type="text" name="txtNombreCompleto" id="txtNombreCompleto" placeholder="Nombre" required="" >
         <label for="">Fecha Nacimiento:</label>
         <input type="date" name="dtpFechaNacimiento" id="dtpFechaNacimiento" required="">
-        <input type="email" name="txtEmail" id="txtEmail" placeholder="EMAIL" required="">
-        <input type="int" name="txtTelefono" id="txtTelefono" placeholder="TELEFONO" required="">
+        <label for="txtTelefono">Telefono</label>
+        <input type="int" name="txtTelefono" id="txtTelefono" placeholder="Telefono" required="">
         <label for="">Region: </label>
         <p>
             <select name="cboRegion" id="cboRegion" class="select" required="">
-                <option value="">Seleccionar Region</option>
-                <?php while($fila = $resultadoRegion->fetch_assoc()): ?>
-                    <option value="<?php echo $fila["id_region"]; ?>">
-                        <?php echo $fila["region"]; ?>
-                    </option>
-                <?php endwhile; ?>
-    
-                </select>
+                {%for r in regiones %}
+                <option value="0">Seleccione Región</option>
+                      <option value="{{r.id}}">{{r.descripcion}}</option>
+                {% endfor %}
             </select>
         <p>
             <label for="">Ciudad: </label>
         <p>
             <select name="cboCiudad" id="cboCiudad" class="select" required="">
-                <option value="">Seleccionar Ciudad</option>
-                <?php while($fila = $resultadoCiudad->fetch_assoc()): ?>
-                    <option value="<?php echo $fila["id_ciudad"]; ?>">
-                        <?php echo $fila["ciudad"]; ?>
-                    </option>
-                <?php endwhile; ?>
+                {%for c in ciudades %}
+                <option value="0">Seleccione Ciudad</option>
+                      <option value="{{c.id}}">{{c.descripcion}}</option>
+                {% endfor %}
                 </select>
        <p>
             <label for="">Tipo Vivienda: </label>
        <p>
-       <p>
             <select name="cboVivienda" id="cboVivienda" class="select" required="">
-                <option value="">Seleccionar tipo de Vivienda</option>
-                <?php while($fila = $resultadoTipoVivienda->fetch_assoc()): ?>
-                <option value="<?php echo $fila["id_vivienda"]; ?>">
-                    <?php echo $fila["vivienda"]; ?>
-                </option>
-    
-                <?php endwhile; ?>
+                {%for v in viviendas %}
+                <option value="0">Seleccione Vivienda</option>
+                      <option value="{{v.id}}">{{v.descripcion}}</option>
+                {% endfor %}
                 </select>
             </select>
      <p>
