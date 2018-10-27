@@ -13,7 +13,7 @@ def home(request):
 def galeria(request):
     return render(request, 'core/galeria.html')
 
-
+@login_required
 def registro(request):
     regiones=Region.objects.all()
     ciudades=Ciudad.objects.all()

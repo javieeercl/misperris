@@ -6,36 +6,16 @@
     {% csrf_token %}
 
     <label for="txtNombre">Nombre Mascota</label>
-    <input type="text" name="txtNombreM" id="txtNombreM" placeholder="Nombre Mascota">
+    <input type="text" name="txtNombreMasc" id="txtNombreMasc" placeholder="Nombre Mascota">
     <br>
-    <label for="cboRaza">Raza</label>
-    <select name="cboRaza" id="cboRaza" ></select>
-   <br>
-    <label for="rbtSexo">Sexo</label>
+    <label for="txtFNac">Fecha de Nacimiento</label>
+    <input type="date" name="txtFNac" id="txtFNac" >
     <br>
-    <label for="">Macho</label>
-    <input type="radio" name="rbtMacho" id="rbtMacho" >
-    <label for="">Hembra</label>
-   
-    <input type="radio" name="rbtHembra" id="rbtHembra" >
-    <br>
-    <label for="txtFechaNM">Fecha de Nacimiento</label>
-    <input type="date" name="txtFechaNM" id="txtFechaNM" >
-    <br>
-
     <label for="txtDescripcion">Descripcion</label>
-    <input type="text"  name="txtDescripcion" id="txtDescripcion" placeholder="Breve descripcion ">
+    <input type="text"  name="txtDescripcion" id="txtDescripcion" placeholder="Ingrese descripcion ">
     <br>
     <label for="imgMascota">Imagen de la mascota</label>
-    <input type="file" name="" id="">  
-    <br>
-    <label for="">Adoptado</label>
-    <input type="radio" name="rbtSi" id="rbtSi">
-    <input type="radio" name="rbtNo" id="rbtNo">
-
-
-
-
+    <input type="file" name="" id=""> 
 
 
     <input type="submit" value="Enviar" id="Btnboton" >
