@@ -1,15 +1,14 @@
 from django.shortcuts import render
-from django.contrib.auth.forms import UserCreationForm
-from .forms import CustomCreationForm 
+from .forms import CustomUserCreationForm 
 
 # Create your views here.
 
 def register(request):
     variables = {
-        'form':CustomCreationForm
+        'form':CustomUserCreationForm
     }
     if request.POST:   
-        form = CustomCreationForm(request.POST)
+        form = CustomUserCreationForm(request.POST)
         if form.is_valid():        
                 form.save()
                 variables['mensaje'] = "Usuario Registrado Correctamente"

@@ -12,7 +12,8 @@ class Region(models.Model):
         verbose_name_plural = "Regiones"
 
 class Ciudad(models.Model):
-    descripcion = models.CharField(max_length=50) 
+    descripcion = models.CharField(max_length=50)
+    region = models.ForeignKey(Region, on_delete=models.CASCADE) 
 
     def __str__(self):
         return self.descripcion
@@ -43,3 +44,31 @@ class Adoptante(models.Model):
     class Meta:
         verbose_name="Adoptante"    
         verbose_name_plural="Adoptantes"  
+
+class Raza(models.Model):
+    descripcion = models.CharField(max_length=60)
+    
+    def __str__(self):
+        return self.descripcion
+
+    class Meta:
+        verbose_name_plural="Razas"
+
+class Estado(models.Model):
+    descripcion = models.CharField(max_length=60)
+    
+    def __str__(self):
+        return self.descripcion
+
+    class Meta:
+        verbose_name_plural="Estados"
+
+class Mascota(models.Model):
+    nombre = models.CharField(max_length=60)
+    raza = models.ForeignKey(Raza, on_delete=models.CASCADE)
+    genero = models.CharField(max_length=1)
+    fecha_ingreso = models.DateField()
+    fecha_nacimiento = models.DateField()
+    descripcion = models.CharField(max_length=60)
+    imagen = models.ImageField(upload_to="mascotas", null=True)
+    estado = models.ForeignKey(Estado, on_delete=models.CASCADE)

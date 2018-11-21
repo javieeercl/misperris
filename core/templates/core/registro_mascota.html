@@ -2,25 +2,24 @@
 
 {% block contenido %}
 
-<form action=""  name="registro_mascota" id="registro_mascota">
-    {% csrf_token %}
+        <h2 class="registro_titulo">Registro Mascota</h2>
+        <form action="" class="registro" name="registro_mascota" id="registro_mascota">
+            {% csrf_token %}
+            <label class= "registro_label" for="txtNombre">Nombre Mascota</label>
+            <input type="text" name="txtNombreMasc" id="txtNombreMasc" placeholder="Nombre Mascota">
+            <br>
+            <label class= "registro_label" for="txtFNac">Fecha de Nacimiento</label>
+            <input type="date" name="txtFNac" id="txtFNac" >
+            <br>
+            <label class= "registro_label" for="txtDescripcion">Descripcion</label>
+            <input type="text"  name="txtDescripcion" id="txtDescripcion" placeholder="Ingrese descripcion ">
+            <br>
+            <label class= "registro_label" for="imgMascota">Imagen de la mascota</label>
+            <input type="file" name="" id=""> 
+            <br>
+            <input type="submit" value="Enviar" id="Btnboton">
+        </form>
 
-    <label for="txtNombre">Nombre Mascota</label>
-    <input type="text" name="txtNombreMasc" id="txtNombreMasc" placeholder="Nombre Mascota">
-    <br>
-    <label for="txtFNac">Fecha de Nacimiento</label>
-    <input type="date" name="txtFNac" id="txtFNac" >
-    <br>
-    <label for="txtDescripcion">Descripcion</label>
-    <input type="text"  name="txtDescripcion" id="txtDescripcion" placeholder="Ingrese descripcion ">
-    <br>
-    <label for="imgMascota">Imagen de la mascota</label>
-    <input type="file" name="" id=""> 
-
-
-    <input type="submit" value="Enviar" id="Btnboton" >
-
- </form>
 
 
 {% endblock contenido %}

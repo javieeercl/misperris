@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import *
 
 
@@ -13,7 +13,6 @@ def home(request):
 def galeria(request):
     return render(request, 'core/galeria.html')
 
-@login_required
 def registro(request):
     regiones=Region.objects.all()
     ciudades=Ciudad.objects.all()
@@ -50,5 +49,6 @@ def registro(request):
 
     return render(request,'core/registro.html',variables)
 
+@login_required
 def registro_mascota(request):
     return render(request, 'core/registro_mascota.html')

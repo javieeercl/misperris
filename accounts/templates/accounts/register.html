@@ -1,27 +1,118 @@
+<style>
+    body{font-family: Arial; background-color: #18A383; box-sizing: border-box;}
+
+        container{
+            align-content: center;
+        }
+
+        form{
+            background-color: white;
+            border-radius: 3px;
+            color: black;
+            font-size: 15px;
+            padding: 30px;
+            margin: 0 auto;
+            width: 800px;
+            margin-top: 10px;
+            height: 800px;;
+            
+
+            border-radius: 26px 26px 26px 26px;
+             -moz-border-radius: 26px 26px 26px 26px;
+            -webkit-border-radius: 26px 26px 26px 26px;
+             border: 2px solid #000000;
+        }
+
+
+        textarea{
+            border: 100px;
+            outline: none;
+            height: 5px;
+            margin: 5px;
+        }
+        
+        .label{
+            margin: 100px;
+        }
+
+        .field{
+            border: solid 1px rgb(199, 194, 194);
+            padding: 8px;
+            margin: 10px;
+            margin-left: 0;
+            width: 310px;
+        }
+
+        .field:focus{
+            border-color: #18A383;
+        }
+
+        .center-content{
+            text-align: center;
+            margin-top: 120px;
+        }
+
+        .btn{
+            border-radius: 3px;
+            display: inline-block;
+            padding: 15px 30px;
+            text-decoration: none;
+            text-shadow: 0 1px 0 rgba(255,255,255,0.3);
+            box-shadow: 0 1px 1px rgba(0,0,0,0.3); 
+            margin: 29px;
+
+
+
+        }
+        
+        .btn-green{
+            color: white;
+            background-color: #84D3B6;
+        }
+        .btn-green:hover{
+            background-color: #84D3B6;	
+        }
+        .btn-green:active{
+            background-color: #84D3B6;
+        }
+        
+        .body_mayor{
+            background-color: #6DCCAA;
+        
+        }
+
+    </style>
+{% extends 'core/base.html' %}
+{% block contenido %}
 <!DOCTYPE html>
-<html lang="en">
+
+<html lang="en"></html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Registro</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 </head>
 <body>
-    
-    <h2>Registro usuario</h2>
 
-    <form action="" method="POST">
+    {% load crispy_forms_tags %}
+    <div class="container">
+        <h2>Registro usuario</h2>
 
-        {% csrf_token %}
+        <form action="" method="POST">
 
-        {{ form.as_p }}
+            {% csrf_token %}
 
-        <input type="submit" value="Registrar">
+            {{ form | crispy }}
 
-    </form>
+            <input type="submit" value="Registrar" class="btn btn-green">
 
-    {{ mensaje }}
-    
-
+        </form>
+        <h3>{{ mensaje }}</h3>
+    </div>
 </body>
 </html>
+{% endblock contenido %}
+

@@ -132,6 +132,11 @@ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     justify-content: space-between;
  
  }
+
+ .registro {
+    
+}
+
  
  .contenido > div{
      width: 100%;
@@ -250,10 +255,29 @@ float: right;
       margin: 10px;
         
     }
+
+    .registro {
+        width: 500px;
+        max-width: 100%;
+        margin: auto;
+        margin-top: 30px;
+        padding: 20px;
+        box-shadow: 0 0 20px 1px rgba(0,0,0,0,3);
+    }
+
+    .registro_titulo{
+        text-align: center;
+        margin-top: 0;
+        color: rgba(0,0,0,0,7)
+    }
+
+    .registro_label
+    
     
  .texto_footer{
      font-family: sans-serif;
  }
+ 
 
  .contact-main form {
     width: 350px;
@@ -265,6 +289,7 @@ float: right;
     margin-top: 80px;
     margin-bottom: 80px;
     border-radius: 7px;
+    
     
 }
 

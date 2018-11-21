@@ -22,10 +22,10 @@
                     <a href="{% url 'home' %}"> <p>Inicio</p> </a>
                 </li>
                 <li>
-                    <a href="#">Quienes somos</a>
+                    <a href="{% url 'galeria' %}">Quienes somos</a>
                 </li>
                 <li>
-                    <a href="{% url 'registro' %}">Servicios</a>
+                    <a href="{% url 'registro_mascota' %}">Servicios</a>
                 </li>
                 {% if request.user.is_authenticated %}
                 <li>
@@ -36,11 +36,12 @@
                 <li>
                     <a href="{% url 'login' %}">Login</a>
                 </li>
+                {% endif %}
                 <li>
-                    <a href="{% url 'register' %}">Registro</a>
+                    <a href="{% url 'registro' %}">Registro</a>
                 </li>
         
-                {% endif %}
+                
 
             </ul>
     </header>
